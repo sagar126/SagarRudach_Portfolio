@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Works | Sagar Rudach</title>
+
+    <header class="site-header">
+
+    <!-- LEFT -->
+    <div class="header-name">
+        Sagar Rudach
+    </div>
+
+    <!-- CENTER -->
+    <nav class="header-nav">
+       <a href="index.html" data-page="index">Index</a>
+        <a href="works.html" data-page="works">Works</a>
+        <a href="info.html" data-page="info">Info</a>
+    </nav>
+
+    <!-- RIGHT -->
+    <div class="header-right">
+
+        <div class="header-location">
+            <span id="clock">08:32 PM</span>
+            <span>Gujarat, India</span>
+        </div>
+
+        <a href="contact.html" class="header-contact">
+            Contact
+        </a>
+
+    </div>
+</header>
+
+    <link rel="stylesheet" href="Style.css">
+</head>
+<script>
+
+const socialCards = document.querySelectorAll(".social-card");
+const socialDots = document.querySelectorAll(".social-dots button");
+
+let currentSocial = 2;
+
+
+/* ---------------------------------------------------------
+   UPDATE CAROUSEL
+--------------------------------------------------------- */
+
+function updateSocialCarousel() {
+
+    socialCards.forEach((card, index) => {
+
+        let position = index - currentSocial;
+
+        /*
+        position:
+
+        -2 = far left
+        -1 = left
+         0 = center
+         1 = right
+         2 = far right
+        */
+
+        if (position === -2) {
+            card.style.transform =
+                "translateX(-520px) rotate(-12deg) scale(.82)";
+            card.style.opacity = ".65";
+            card.style.zIndex = "1";
+
+        }
+
+        else if (position === -1) {
+            card.style.transform =
+                "translateX(-300px) rotate(-7deg) scale(.9)";
+            card.style.opacity = ".9";
+            card.style.zIndex = "2";
+        }
+
+        else if (position === 0) {
+            card.style.transform =
+                "translateX(0) rotate(0deg) scale(1)";
+            card.style.opacity = "1";
+            card.style.zIndex = "5";
+        }
+
+        else if (position === 1) {
+            card.style.transform =
+                "translateX(300px) rotate(7deg) scale(.9)";
+            card.style.opacity = ".9";
+            card.style.zIndex = "2";
+
+        }
+
+        else if (position === 2) {
+            card.style.transform =
+                "translateX(520px) rotate(12deg) scale(.82)";
+            card.style.opacity = ".65";
+            card.style.zIndex = "1";
+
+        }
+
+        else {
+            card.style.opacity = "0";
+            card.style.zIndex = "0";
+
+        }
+
+    });
+
+
+    socialDots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+            "active",
+            index === currentSocial
+        );
+
+    });
+
+}
+
+
+/* ---------------------------------------------------------
+   DOT NAVIGATION
+--------------------------------------------------------- */
+
+socialDots.forEach((dot, index) => {
+
+    dot.addEventListener("click", () => {
+
+        currentSocial = index;
+
+        updateSocialCarousel();
+
+    });
+
+});
+
+
+/* initial */
+
+updateSocialCarousel();
+
+</script>
+
+<body class="works-body">
+    <main class="works-page">
+        <section class="social-showcase" aria-label="Social media and campaign work">
+    <div class="social-stage">
+
+        <!-- PROJECT 01 — 4:5 -->
+        <article class="social-card ratio-portrait card-left-back">
+            <img src="Assets/post_2.png" alt="Campaign artwork">
+            <div class="social-card-label">
+                <span>01</span>
+                <span>Campaign</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 02 — 1:1 -->
+        <article class="social-card ratio-square card-left">
+            <img src="Assets/post_3.png" alt="Social media artwork">
+            <div class="social-card-label">
+                <span>02</span>
+                <span>Social</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 03 — 9:16 -->
+        <article class="social-card ratio-story card-center">
+            <img src="Assets/post_4.png" alt="Story artwork">
+            <div class="social-card-label">
+                <span>03</span>
+                <span>Story / Motion</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 04 — 4:5 -->
+        <article class="social-card ratio-portrait card-right">
+            <img src="Assets/post_5.png" alt="Campaign artwork">
+            <div class="social-card-label">
+                <span>04</span>
+                <span>Campaign</span>
+            </div>
+        </article>
+
+        <!-- PROJECT 05 — 9:16 -->
+        <article class="social-card ratio-story card-right-back">
+            <img src="Assets/post_6.png" alt="Vertical campaign artwork">
+            <div class="social-card-label">
+                <span>05</span>
+                <span>Reel / Story</span>
+            </div>
+        </article>
+    </div>
+
+    <div class="social-showcase-bottom">
+        <div class="social-dots">
+            <button class="active" aria-label="Project 1"></button>
+            <button aria-label="Project 2"></button>
+            <button aria-label="Project 3"></button>
+            <button aria-label="Project 4"></button>
+            <button aria-label="Project 5"></button>
+        </div>
+        <span class="social-hint">Drag / scroll</span>
+    </div>
+
+</section>
+
+<section class="works-grid" aria-label="Selected projects">
+            <a class="work-card work-card-wide" href="index.html#project-01">
+                <img src="Assets/post_2.png" alt="Project 01">
+                <div class="work-card-meta">
+                    <span>01</span>
+                    <span>Film / Direction</span>
+                </div>
+            </a>
+            <a class="work-card" href="index.html#project-02">
+                <img src="Assets/post_3.png" alt="Project 02">
+                <div class="work-card-meta">
+                    <span>02</span>
+                    <span>Campaign / Visuals</span>
+                </div>
+            </a>
+
+            <a class="work-card" href="index.html#project-03">
+                <img src="Assets/post_4.png" alt="Project 03">
+                <div class="work-card-meta">
+                    <span>03</span>
+                    <span>Editorial / Film</span>
+                </div>
+            </a>
+
+            <a class="work-card" href="index.html#project-04">
+                <img src="Assets/post_5.png" alt="Project 04">
+                <div class="work-card-meta">
+                    <span>04</span>
+                    <span>Production / Direction</span>
+                </div>
+            </a>
+
+            <a class="work-card work-card-tall" href="index.html#project-05">
+                <img src="Assets/post_6.png" alt="Project 05">
+                <div class="work-card-meta">
+                    <span>05</span>
+                    <span>Brand Story / Film</span>
+                </div>
+            </a>
+
+            <a class="work-card work-card-wide" href="index.html#project-06">
+                <img src="Assets/project-05-thumb.jpg" alt="Project 06">
+                <div class="work-card-meta">
+                    <span>06</span>
+                    <span>Visual Storytelling</span>
+                </div>
+            </a>
+        </section>
+    </main>
+</body>
+
+</html>
