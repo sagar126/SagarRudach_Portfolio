@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+<header class="site-header">
+
+    <!-- LEFT -->
+    <div class="header-name">
+        Sagar Rudach
+    </div>
+
+    <!-- CENTER -->
+    <nav class="header-nav">
+       <a href="index.html" data-page="index">Index</a>
+        <a href="works.html" data-page="works">Works</a>
+        <a href="info.html" data-page="info">Info</a>
+    </nav>
+
+    <!-- RIGHT -->
+    <div class="header-right">
+
+        <div class="header-location">
+            <span id="clock">08:32 PM</span>
+            <span>Gujarat, India</span>
+        </div>
+
+        <a href="contact.html" class="header-contact">
+            Contact
+        </a>
+
+    </div>
+</header>
+    <link rel="stylesheet"
+        href="style.css">
+</head>
+<body>
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <main class="hero" id="hero">
+
+        <!-- PROJECT BOXES -->
+
+        <button
+            class="project project-1"
+            data-project="0">
+        <img src="Assets/post_1.jpg" 
+        alt="Project 01">
+        </button>
+
+
+        <button
+            class="project project-2"
+            data-project="1">
+        <img src="Assets/post_2.png" 
+        alt="Project 02">
+        </button>
+
+
+        <button
+            class="project project-3"
+            data-project="2">
+        <img src="Assets/post_3.png" 
+        alt="Project 03">
+        </button>
+
+        <button
+            class="project project-4"
+            data-project="3">
+        <img src="Assets/post_4.png" 
+        alt="Project 04">
+        </button>
+
+        <button
+            class="project project-5"
+            data-project="4">
+            <img src="Assets/post_5.png" 
+        alt="Project 05">
+        </button>
+
+        <button
+            class="project project-6"
+            data-project="5">
+            <img src="Assets/post_6.png" 
+        alt="Project 06">
+        </button>
+
+        <!-- NAME -->
+
+        <h1 class="name">
+
+            <span class="letter">S</span>
+            <span class="letter">A</span>
+            <span class="letter">G</span>
+            <span class="letter">A</span>
+            <span class="letter">R</span>
+
+            <span class="letter">&nbsp;</span>
+
+            <span class="letter">R</span>
+            <span class="letter">U</span>
+            <span class="letter">D</span>
+            <span class="letter">A</span>
+            <span class="letter">C</span>
+            <span class="letter">H</span>
+
+        </h1>
+<br>
+        <div class="about-me">
+            <p>
+                I am a filmmaker, creative producer and visual storyteller. <br>I create
+                compelling narratives that captivate audiences and leave a lasting
+                impact. With a passion for storytelling and a keen eye for detail, I
+                bring ideas to life through the lens of my camera.
+            </p>
+        </div>
+        
+        <div class="subtitle">
+            Filmmaker · Creative Producer · Visual Storyteller
+        </div>
+    </main>
+
+<!-- =========================================
+     PROJECT ARCHIVE
+========================================= -->
+
+<section class="project-archive" id="projectArchive">
+
+    <div class="archive-stack">
+        <!-- COVER / PROJECTS -->
+        <div class="archive-cover">
+            <div class="archive-title">
+                Projects
+            </div>
+            <div class="archive-cover-info">
+                SELECTED<br>
+                WORKS
+            </div>
+            <button
+                class="archive-arrow"
+                id="archiveArrow"
+                aria-label="Open project stack">
+                →
+            </button>
+        </div>
+
+
+        <!-- PROJECT 01 -->
+        <button class="archive-project" data-project="0">
+            <div class="archive-image">
+            <img src="Assets\post_2.png" alt="Project 01">
+            </div>
+            <span>01</span>
+        </button>
+
+
+        <!-- PROJECT 02 -->
+        <button class="archive-project" data-project="1">
+           <div class="archive-image">
+             <img src="Assets/post_3.png" alt="Project 02">
+           </div>
+             <span>02</span>
+        </button>
+
+
+        <!-- PROJECT 03 -->
+        <button class="archive-project" data-project="2">
+            <div class="archive-image">
+            <img src="Assets/post_4.png" alt="Project 03">
+            </div>
+            <span>03</span>
+        </button>
+
+
+        <!-- PROJECT 04 -->
+        <button class="archive-project" data-project="3">
+            <div class="archive-image">
+                <img src="Assets/post_5.png" alt="Project 04">
+            </div>
+            <span>04</span>
+        </button>
+
+
+        <!-- PROJECT 05 -->
+        <button class="archive-project" data-project="4">
+            <div class="archive-image">
+                <img src="Assets/post_6.png" alt="Project 05">
+            </div>
+            <span>05</span>
+        </button>
+
+
+        <!-- PROJECT 06 -->
+        <button class="archive-project" data-project="5">
+            <div class="archive-image">
+                <img src="Assets\project-05-thumb.jpg" alt="Project 06">
+            </div>
+            <span>06</span>
+        </button>
+    </div>
+</section>
+
+<!-- =========================================
+         PROJECT DETAIL VIEW
+    ========================================= -->
+
+    <div
+        class="project-view"
+        id="projectView">
+
+        <div
+            class="project-backdrop"
+            id="projectBackdrop">
+        </div>
+
+        <div
+            class="project-content"
+            id="projectContent">
+            <button
+                class="close-project"
+                id="closeProject"
+                aria-label="Close project">
+
+                ×
+            </button>
+            <div
+                class="project-image"
+                id="projectImage">
+
+                PROJECT IMAGE / VIDEO
+            </div>
+            <div class="project-info">
+                <div>
+                    <div
+                        class="project-number"
+                        id="projectNumber">
+
+                        PROJECT 01
+                    </div>
+                </div>
+                <div>
+                    <h2
+                        class="project-title"
+                        id="projectTitle">
+                        Project Title
+                    </h2>
+                    <p
+                        class="project-description"
+                        id="projectDescription">
+
+                        Project description goes here.
+                        This is where you can explain
+                        the idea, your role, production,
+                        story and anything else you want
+                        the visitor to know.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

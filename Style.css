@@ -1,0 +1,2456 @@
+/* =========================================
+   HEADER
+========================================= */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    z-index: 50;
+    font-size: 16px;
+}
+
+/* =========================================
+   PROJECT FOLDERS
+========================================= */
+
+.project-folder-container {
+
+    position: fixed;
+    left: 0;
+    top: 50%;
+    width: 100vw;
+    height: 82vh;
+    transform:
+        translate(-100%, -50%);
+    display: flex;
+    align-items: center;
+    padding-left: 12vw;
+    transition:
+        transform 1.2s cubic-bezier(.16,1,.3,1);
+    z-index: 40;
+    pointer-events: none;
+}
+
+
+/* OPEN */
+
+.hero.projects-open .project-folder-container {
+
+    transform:
+        translate(0, -50%);
+    pointer-events: auto;
+}
+/* =========================================
+   PROJECT FOLDER NAVIGATION
+========================================= */
+
+.project-folder-view {
+
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    overflow: hidden;
+    transform: translateX(100%);
+    transition:
+        transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* OPEN */
+
+.hero.projects-open .project-folder-view {
+
+    transform: translateX(0);
+    scale: 1px;
+    pointer-events: auto;
+
+}
+
+
+/* =========================================
+   FOLDER TRACK
+========================================= */
+
+.folder-track {
+
+    position: absolute;
+    right: 5vw;
+    top: 50%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    transform: translateY(-50%);
+    padding-right: 8vw;
+
+}
+
+
+/* =========================================
+   FOLDER
+========================================= */
+
+.folder-project {
+
+    position: relative;
+    flex: 0 0 clamp(180px, 18vw, 280px);
+    height: 65vh;
+    margin-left: -55px;
+    padding: 0;
+    border: 1px solid #444;
+    background: #222;
+    overflow: visible;
+    cursor: pointer;
+    transition:
+        transform .6s cubic-bezier(.16,1,.3,1),
+        margin .6s cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* First folder */
+
+.folder-project:first-child {
+    margin-left: 0;
+}
+
+
+/* =========================================
+   FOLDER IMAGE
+========================================= */
+
+.folder-project img {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+}
+
+
+/* =========================================
+   FOLDER NUMBER
+========================================= */
+
+.folder-project span {
+
+    position: absolute;
+    right: -1px;
+    top: 15%;
+    width: 42px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ddd;
+    color: #111;
+    font-size: 12px;
+    font-weight: 600;
+    writing-mode: vertical-rl;
+    letter-spacing: .1em;
+    z-index: 10;
+
+}
+
+
+/* =========================================
+   STACK ORDER
+========================================= */
+
+.folder-project:nth-child(1) {
+    z-index: 6;
+}
+
+.folder-project:nth-child(2) {
+    z-index: 5;
+}
+
+.folder-project:nth-child(3) {
+    z-index: 4;
+}
+
+.folder-project:nth-child(4) {
+    z-index: 3;
+}
+
+.folder-project:nth-child(5) {
+    z-index: 2;
+}
+
+.folder-project:nth-child(6) {
+    z-index: 1;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .folder-project:hover {
+        transform:
+            translateY(-20px);
+        margin-right: 20px;
+    }
+
+}
+
+/* =========================================
+   PROJECT ARCHIVE
+========================================= */
+
+.project-archive {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 70;
+    pointer-events: none;
+    overflow: visible;
+    /*
+       IMPORTANT:
+       Leave the folder stack partially visible
+       on the homepage.
+    */
+    transform: translateX(calc(100% - 120px));
+    transition:
+        transform 1s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+
+/* OPEN */
+
+body.archive-open .project-archive {
+        transform: translateX(calc(100% - 160px));
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   TRACK
+========================================= */
+
+.archive-track {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: stretch;
+}
+
+
+/* =========================================
+   COVER
+========================================= */
+
+.archive-cover {
+    cursor: pointer;
+    position: relative;
+    flex: 0 0 18vw;
+    min-width: 190px;
+    height: 100%;
+    background: #0b0b0b;
+    border-right: 1px solid #333;
+    z-index: 20;
+}
+
+.archive-cover:hover {
+    box-shadow:
+        -16px 12px 35px rgba(0,0,0,.48),
+        4px 0 12px rgba(0,0,0,.2);
+}
+
+/* PROJECTS TITLE */
+
+.archive-cover-title {
+    position: absolute;
+    top: 10%;
+    right: 30px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: clamp(2rem, 3vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -.04em;
+}
+
+
+/* SMALL INFO */
+
+.archive-cover-info {
+    position: absolute;
+    bottom: 8%;
+    left: 35px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 9px;
+    line-height: 1.4;
+    letter-spacing: .1em;
+    color: #777;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.archive-arrow {
+    position: absolute;
+    right: 8;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: #ddd;
+    color: #111;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 30;
+    transition:
+        transform .3s ease;
+}
+
+
+.archive-arrow:hover {
+
+    transform:
+        translateY(-50%)
+        translateX(5px);
+}
+
+/* =========================================
+   ARCHIVE PROJECT
+========================================= */
+
+/* =========================================
+   FOLDER
+========================================= */
+
+.archive-project {
+
+    position: relative;
+
+    flex: 0 0 clamp(150px, 13vw, 210px);
+
+    height: 88vh;
+
+    margin-left: -32px;
+
+    padding: 0;
+
+    border: none;
+
+    background: #888;
+
+    cursor: pointer;
+
+    overflow: visible;
+
+    /*
+       Rounded physical folder appearance
+    */
+    border-radius:
+        0
+        18px
+        18px
+        0;
+
+    /*
+       Shadow makes the layers feel physical
+    */
+    filter:
+        drop-shadow(
+            -10px 8px 14px rgba(0,0,0,.35)
+        );
+
+    transition:
+        transform .7s cubic-bezier(.16,1,.3,1),
+        margin-left .7s cubic-bezier(.16,1,.3,1);
+}
+
+.archive-project span {
+
+    position: absolute;
+    top: 14%;
+    right: -1px;
+    width: 44px;
+    height: 105px;
+    background: #ccc;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    z-index: 10;
+    /*
+       Rounded folder tab
+    */
+    border-radius:
+        0
+        10px
+        10px
+        0;
+
+    /*
+       Physical depth
+    */
+    box-shadow:
+        5px 4px 10px rgba(0,0,0,.25);
+}
+.archive-project:nth-of-type(1) {
+    z-index: 15;
+}
+
+.archive-project:nth-of-type(2) {
+    z-index: 14;
+}
+
+.archive-project:nth-of-type(3) {
+    z-index: 13;
+}
+
+.archive-project:nth-of-type(4) {
+    z-index: 12;
+}
+
+.archive-project:nth-of-type(5) {
+    z-index: 11;
+}
+
+.archive-project:nth-of-type(6) {
+    z-index: 10;
+}
+
+/* IMAGE */
+
+.archive-project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* NUMBER TAB */
+
+.archive-number {
+    position: absolute;
+    top: 16%;
+    right: 0;
+    width: 42px;
+    height: 100px;
+    background: #ccc;
+    color: #111;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    writing-mode: vertical-rl;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* =========================================
+   MAIN PAGE SHIFT
+========================================= */
+
+.hero {
+    transition:
+        transform 1.2s cubic-bezier(.16,1,.3,1);
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.header-name {
+    justify-self: start;
+    color: #f5f5f5;
+    font-weight: 500;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-nav a {
+    position: relative;
+    color: #777;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.header-nav a:hover {
+    color: #f5f5f5;
+}
+
+
+/* ACTIVE LINK */
+
+.header-nav a.active {
+    color: #f5f5f5;
+}
+
+.header-nav a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -8px;
+    height: 1px;
+    background: #f5f5f5;
+}
+
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.header-right {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.header-location {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-location span:first-child {
+    color: #777;
+}
+
+.header-location span:last-child {
+    color: #f5f5f5;
+}
+
+.header-contact {
+    color: #777;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.header-contact:hover {
+    color: #f5f5f5;
+}
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+
+            background: #111;
+            color: #f5f5f5;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        /* =========================================
+           TOP LABEL
+        ========================================= */
+
+        .top-label {
+
+            position: absolute;
+            top: 30px;
+            left: 35px;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0.5;
+            z-index: 30;
+        }
+
+
+        /* =========================================
+           NAME
+        ========================================= */
+
+        .name {
+
+            position: absolute;        
+            top: 40%;
+            left: 50%;
+            z-index: 10;
+            max-width: calc(100vw - 32px);
+            display: flex;
+            font-size:
+                clamp(
+                    3rem,
+                    8vw,
+                    10rem
+                );
+
+            font-weight: 700;
+            letter-spacing: -0.07em;
+            line-height: 0.8;
+            white-space: nowrap;
+            transform: translate(-50%, -50%);
+            user-select: none;
+        }
+
+
+        .letter {
+
+            display: inline-block;
+            opacity: 0;
+            transform:
+                translate(var(--x), var(--y))
+                rotate(var(--rotation))
+                scale(0.8);
+            transition:
+                transform
+                1.5s
+                cubic-bezier(.16,1,.3,1),
+                opacity
+                .6s
+                ease;
+        }
+
+
+        .hero.reveal .letter {
+
+            opacity: 1;
+            transform:
+                translate(0,0)
+                rotate(0deg)
+                scale(1);
+        }
+
+
+        /* =========================================
+           ABOUT ME
+        ========================================= */
+        .about-me{
+
+            z-index: -10;
+            position: absolute;
+            bottom: 18vh;
+            left: 50%;
+            width: min(76vw, 1000px);
+            transform:
+                translateX(-50%)
+                translateY(200px);
+            text-align: center;
+            font-size: clamp(.5rem, 1.5vw, 2rem);
+            line-height: 1.15;
+            letter-spacing: clamp(.05em, .18vw, .18em);
+            text-transform: uppercase;
+            opacity: 0;
+            transition:
+                transform
+                1.5s
+                cubic-bezier(.16,1,.3,1),
+                opacity
+                .6s
+                ease;
+        }
+
+
+        .hero.reveal .about-me {
+
+            opacity: 1;
+            transform:
+                translate(-50%, 0)
+                rotate(0deg)
+                scale(1);        }
+
+        /* =========================================
+           SUBTITLE
+        ========================================= */
+
+        .subtitle {
+
+            position: absolute;
+            bottom: 8vh;
+            left: 50%;
+            transform:
+                translateX(-50%)
+                translateY(20px);
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition:
+                opacity
+                1s
+                ease
+                1.8s,
+
+                transform
+                1s
+                cubic-bezier(.16,1,.3,1)
+                1.8s;
+        }
+
+
+        .hero.reveal .subtitle {
+
+            opacity: .6;
+
+            transform:
+                translateX(-50%)
+                translateY(0);
+        }
+
+
+        /* =========================================
+           PROJECT BOXES
+        ========================================= */
+.project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+.project {
+    position: absolute;
+    width: clamp(72px, 9vw, 150px);
+    aspect-ratio: 4 / 3;
+    background: #252525;
+    border: 1px solid #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0;
+    transition:
+        transform 1.5s cubic-bezier(.16,1,.3,1),
+        opacity .8s ease;
+}
+
+        .project:hover {
+            border-color: #777;
+            color: #fff;
+            scale:110%;
+            transition:
+            Scale 0.5s cubic-bezier(.2,.8,.2,1);
+        }
+
+        /* =========================================
+           PROJECT FINAL POSITIONS
+        ========================================= */
+
+        .hero.reveal .project {
+            opacity: 1;
+
+        }
+
+
+        .hero.reveal .project-1 {
+            transition-delay: .1s;
+        }
+
+        .hero.reveal .project-2 {
+            transition-delay: .1s;
+        }
+
+        .hero.reveal .project-3 {
+            transition-delay: .1s;
+        }
+
+        .hero.reveal .project-4 {
+            transition-delay: .1s;
+        }
+
+
+        /* =========================================
+           PROJECT OVERLAY
+        ========================================= */
+        
+        .project-view {
+
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+
+        .project-view.active {
+
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+
+        /* =========================================
+           DARK BACKDROP
+        ========================================= */
+
+        .project-backdrop {
+
+            position: absolute;
+            inset: 0;
+            background:
+                rgba(17, 17, 17, 0.75);
+            opacity: 0;
+            transition:
+                opacity .6s ease;
+        }
+
+
+        .project-view.active
+        .project-backdrop {
+            opacity: 1;
+        }
+
+
+        /* =========================================
+           EXPANDED PROJECT
+        ========================================= */
+
+        .project-content {
+
+            position: absolute;
+            width: 80vw;
+            height: 80vh;
+            top: 50%;
+            left: 50%;
+            background: #1b1b1b;
+            border: 1px solid #444;
+            overflow: auto;
+            opacity: 0;
+            transform:
+                translate(
+                    calc(-50% + var(--start-x)),
+                    calc(-50% + var(--start-y))
+                )
+                scale(var(--start-scale));
+
+            transition:
+                transform
+                .8s
+                cubic-bezier(.16,1,.3,1),
+                opacity
+                .4s
+                ease;
+        }
+
+
+        .project-view.active
+        .project-content {
+            opacity: 1;
+            transform:
+                translate(-50%,-50%)
+                scale(1);
+        }
+
+
+        /* =========================================
+           PROJECT IMAGE PLACEHOLDER
+        ========================================= */
+
+        .project-image {
+
+            width: 100%;
+            height: 65%;
+            background: #292929;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 12px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           PROJECT INFO
+        ========================================= */
+
+        .project-info {
+
+            padding: 35px;
+            display: grid;
+            grid-template-columns:
+                1fr 2fr;
+            gap: 40px;
+        }
+
+
+        .project-number {
+
+            font-size: 11px;
+            letter-spacing: .15em;
+            opacity: .5;
+        }
+
+
+        .project-title {
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    5rem
+                );
+            line-height: .9;
+            margin-bottom: 25px;
+        }
+
+
+        .project-description {
+
+            max-width: 600px;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #aaa;
+        }
+
+
+        /* =========================================
+           CLOSE BUTTON
+        ========================================= */
+
+        .close-project {
+
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            z-index: 10;
+            width: 45px;
+            height: 45px;
+            border: 1px solid #555;
+            background: #111;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width:600px) {
+
+            .name {
+
+                font-size: 17vw;
+                flex-wrap: wrap;
+                justify-content: center;
+                max-width: 95vw;
+            }
+
+
+            .project {
+
+                width: 25vw;
+            }
+
+
+            .project-content {
+
+                width: 92vw;
+                height: 85vh;
+            }
+
+
+            .project-info {
+
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 25px;
+            }
+
+        }
+
+
+/* =========================================
+   SLIDE PROJECT ARCHIVE
+========================================= */
+
+.project-archive {
+    position: fixed;
+    top: 0;
+    right: 0;
+    /*
+       The archive itself is only 55vw wide.
+       This makes it feel like a physical stack
+       sitting off the edge of the homepage.
+    */
+    width: 40vw;
+    height: 100vh;
+    z-index: 70;
+    pointer-events: none;
+    overflow: visible;
+
+    /*
+       CLOSED:
+       Only the left edge of the archive
+       peeks into the homepage.
+    */
+    transform:
+        translateX(calc(100% - 220px));
+
+    transition:
+        transform 1.1s cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/* =========================================
+   OPEN
+========================================= */
+
+body.archive-open .project-archive {
+    
+    transform:
+        translateX(0);
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   STACK
+========================================= */
+
+.archive-stack {
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding:
+        6vh
+        4vw
+        6vh
+        0;
+}
+
+
+/* =========================================
+   PROJECTS COVER
+========================================= */
+
+.archive-cover {
+
+    position: relative;
+    flex:
+        0 0
+        clamp(115px, 9vw, 150px);
+    height: 88vh;
+    background: #090909;
+    z-index: 30;
+    /*
+       Folder-like rounded edge
+    */
+    border-radius:
+        0
+        24px
+        24px
+        0;
+    /*
+       Physical depth
+    */
+    box-shadow:
+        -12px 12px 30px rgba(0,0,0,.42),
+        4px 0 10px rgba(0,0,0,.18);
+    overflow: visible;
+}
+
+
+/* =========================================
+   PROJECTS TITLE
+========================================= */
+
+.archive-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:
+        translate(-50%, -50%)
+        rotate(-90deg);
+    color: #aaa;
+    font-size:
+        clamp(
+            30px,
+            3vw,
+            48px
+        );
+    line-height: 1;
+    white-space: nowrap;
+    letter-spacing: -.05em;
+}
+
+
+/* =========================================
+   COVER INFORMATION
+========================================= */
+
+.archive-cover-info {
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform:
+        translateX(-50%);
+    writing-mode: vertical-rl;
+    color: #666;
+    font-size: 8px;
+    line-height: 1.5;
+    letter-spacing: .15em;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   ARROW
+========================================= */
+
+.archive-arrow {
+
+    position: absolute;
+    right: -22px;
+    top: 50%;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #e4e4e4;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.3);
+    transform:
+        translateY(-50%);
+    animation:
+        archiveArrowBounce
+        2.2s
+        ease-in-out
+        infinite;
+}
+
+
+/*
+   Attention animation
+*/
+
+@keyframes archiveArrowBounce {
+
+    0%,
+    100% {
+        transform:
+            translateY(-50%)
+            translateX(0);
+    }
+
+    50% {
+        transform:
+            translateY(-50%)
+            translateX(7px);
+    }
+}
+
+
+/*
+   Stop the bounce when interacting
+*/
+
+.archive-arrow:hover {
+
+    animation: none;
+
+    transform:
+        translateY(-50%)
+        translateX(6px);
+
+    background: #fff;
+}
+
+
+/* =========================================
+   FOLDERS
+========================================= */
+
+.archive-project {
+   
+    overflow: visible;
+    position: relative;
+    flex:
+        0 0
+        clamp(115px, 10vw, 170px);
+    height: 88vh;
+    /*
+       Strong overlap.
+       This is what makes it feel like a stack.
+    */
+    margin-left: -38px;
+    padding: 0;
+    border: none;
+    background: #777;
+    cursor: pointer;
+    /*
+       Folder shape
+    */
+    border-radius:
+        0
+        20px
+        20px
+        0;
+
+    /*
+       Physical shadow
+    */
+    box-shadow:
+        -8px 10px 24px rgba(0,0,0,.35);
+
+    transition:
+        margin-left .9s cubic-bezier(.16,1,.3,1),
+        transform .5s cubic-bezier(.16,1,.3,1),
+        filter 0.5s cubic-bezier(.2,.8,.2,1);
+    }
+
+
+/* =========================================
+   FOLDER IMAGE
+========================================= */
+
+.archive-image {
+    overflow: hidden;
+    position: relative;
+    flex:
+        0 0
+        clamp(115px, 10vw, 170px);
+    height: 88vh;
+    /*
+       Strong overlap.
+       This is what makes it feel like a stack.
+    */
+    margin-left: -38px;
+    padding: 0;
+    border: none;
+    background: #777;
+    cursor: pointer;
+    /*
+       Folder shape
+    */
+    border-radius:
+        0
+        20px
+        20px
+        0;
+}
+
+.archive-project img {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit:cover;
+    filter:blur(4px) grayscale(80%);
+    border-radius:
+        0
+        20px
+        20px
+        0;
+
+    transition:
+        filter 0.5s cubic-bezier(.2,.8,.2,1),
+        transform 0.6s cubic-bezier(.2,.8,.2,1);
+    
+}
+
+
+/* =========================================
+   FOLDER TAB / NUMBER
+========================================= */
+
+.archive-project span {
+
+    position: absolute;
+    top: 14%;
+    right: -40px;
+    width: 40px;
+    height: 100px;
+    background: #c8c8c8;
+    color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    z-index: 10;
+    border-radius:
+        0
+        10px
+        10px
+        0;
+
+    box-shadow:
+        5px 4px 12px rgba(0,0,0,.28);
+}
+
+
+/* =========================================
+   FOLDER STACK ORDER
+========================================= */
+
+.archive-project:nth-child(2) {
+    z-index: 25;
+}
+
+.archive-project:nth-child(3) {
+    z-index: 24;
+}
+
+.archive-project:nth-child(4) {
+    z-index: 23;
+}
+
+.archive-project:nth-child(5) {
+    z-index: 22;
+}
+
+.archive-project:nth-child(6) {
+    z-index: 21;
+}
+
+.archive-project:nth-child(7) {
+    z-index: 20;
+}
+
+
+/* =========================================
+   OPENED STACK
+========================================= */
+
+body.archive-expanded .archive-project {
+
+    /*
+       Spread the folders apart.
+    */
+    margin-left: -8px;
+}
+
+
+/* =========================================
+   HOVER
+========================================= */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .archive-project:hover {
+
+        transform:
+            translateY(-14px);
+        filter: blur(0px);
+    }
+
+    .archive-project:hover img {
+        filter: blur(0px);
+    }
+
+}
+
+/* =========================================
+   WORKS PAGE
+========================================= */
+
+.works-body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at 80% 10%, #292929 0, #111 34%),
+        #111;
+}
+
+.works-home-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.works-page {
+    width: min(1900px, calc(100vw - 70px));
+    margin: 0 auto;
+    padding: 0px 0 80px;
+}
+
+.works-heading {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: end;
+    gap: 30px;
+    padding-bottom: 55px;
+    border-bottom: 1px solid #3b3b3b;
+}
+
+.works-kicker,
+.works-intro {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: .12em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.works-heading h1 {
+    font-size: clamp(5rem, 15vw, 12rem);
+    font-weight: 700;
+    letter-spacing: -.08em;
+    line-height: .72;
+}
+
+.works-intro {
+    max-width: 190px;
+    justify-self: end;
+}
+
+.works-grid {
+    align-items: center;
+    max-width: 1900px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px 24px;
+    padding-top: 45px;
+}
+
+.work-card {
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+.work-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    display: block;
+    object-fit: cover;
+    filter: saturate(.75);
+    transition: filter .5s ease, transform .5s cubic-bezier(.16, 1, .3, 1);
+}
+
+.work-card-wide {
+    grid-column: span 2;
+}
+
+.work-card-wide img {
+    aspect-ratio: 16 / 8;
+}
+
+.work-card-tall img {
+    aspect-ratio: 4 / 6;
+}
+
+.work-card:hover img {
+    filter: saturate(1);
+    transform: translateY(-8px);
+}
+
+.work-card-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 13px;
+    color: #888;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.work-card-meta span:first-child {
+    color: #f5f5f5;
+}
+
+@media (max-width: 1080px) {
+    .works-page {
+        width: calc(100vw - 40px);
+        padding-top: 120px;
+    }
+
+    .works-heading {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .works-heading h1 {
+        font-size: 24vw;
+    }
+
+    .works-intro {
+        justify-self: start;
+    }
+
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .work-card-wide {
+        grid-column: auto;
+    }
+}
+
+/* =========================================================
+   SOCIAL MEDIA SHOWCASE
+========================================================= */
+
+.social-showcase {
+    width: 100%;
+    margin: 120px 0 160px;
+    overflow: hidden;
+}
+
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.social-showcase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 24px;
+    margin-bottom: 40px;
+
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+
+/* ---------------------------------------------------------
+   STAGE
+--------------------------------------------------------- */
+
+.social-stage {
+    position: relative;
+
+    width: 100%;
+    height: 560px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 1200px;
+}
+
+
+/* ---------------------------------------------------------
+   CARD BASE
+--------------------------------------------------------- */
+
+.social-card {
+    position: absolute;
+
+    overflow: hidden;
+
+    background: #eee;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.7s cubic-bezier(.2,.8,.2,1),
+        opacity 0.5s ease,
+        filter 0.5s ease;
+
+    cursor: pointer;
+}
+
+
+/* image */
+
+.social-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ---------------------------------------------------------
+   ASPECT RATIOS
+--------------------------------------------------------- */
+
+/* Instagram portrait */
+
+.ratio-portrait {
+    width: 300px;
+    aspect-ratio: 4 / 5;
+}
+
+
+/* Instagram square */
+
+.ratio-square {
+    width: 310px;
+    aspect-ratio: 1 / 1;
+}
+
+
+/* Instagram story / reel */
+
+.ratio-story {
+    width: 260px;
+    aspect-ratio: 9 / 16;
+}
+
+
+/* landscape */
+
+.ratio-landscape {
+    width: 420px;
+    aspect-ratio: 16 / 9;
+}
+
+
+/* ---------------------------------------------------------
+   CARD POSITIONS
+--------------------------------------------------------- */
+
+/* far left */
+
+.card-left-back {
+    transform:
+        translateX(-520px)
+        rotate(-12deg)
+        scale(.82);
+
+    opacity: .65;
+    filter: blur(.5px);
+
+    z-index: 1;
+}
+
+
+/* left */
+
+.card-left {
+    transform:
+        translateX(-300px)
+        rotate(-7deg)
+        scale(.9);
+
+    opacity: .9;
+
+    z-index: 2;
+}
+
+
+/* center */
+
+.card-center {
+    transform:
+        translateX(0)
+        rotate(0deg)
+        scale(1);
+
+    z-index: 5;
+}
+
+
+/* right */
+
+.card-right {
+    transform:
+        translateX(300px)
+        rotate(7deg)
+        scale(.9);
+
+    opacity: .9;
+
+    z-index: 2;
+}
+
+
+/* far right */
+
+.card-right-back {
+    transform:
+        translateX(520px)
+        rotate(12deg)
+        scale(.82);
+
+    opacity: .65;
+    filter: blur(.5px);
+
+    z-index: 1;
+}
+
+
+/* ---------------------------------------------------------
+   CARD LABEL
+--------------------------------------------------------- */
+
+.social-card-label {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, .65)
+    );
+
+    color: white;
+
+    font-size: 11px;
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM
+--------------------------------------------------------- */
+
+.social-showcase-bottom {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 24px;
+
+    margin-top: 35px;
+}
+
+
+.social-dots {
+    display: flex;
+    gap: 7px;
+}
+
+
+.social-dots button {
+
+    width: 8px;
+    height: 8px;
+
+    padding: 0;
+
+    border: 1px solid #111;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+.social-dots button.active {
+    background: #111;
+}
+
+
+.social-hint {
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .08em;
+
+    opacity: .5;
+}
+
+@media (max-width: 800px) {
+
+    .social-showcase {
+        margin: 80px 0 100px;
+    }
+
+    .social-stage {
+        height: 470px;
+    }
+
+    .social-showcase-header {
+        padding: 0 16px;
+        margin-bottom: 20px;
+    }
+
+    .ratio-portrait {
+        width: 230px;
+    }
+
+    .ratio-square {
+        width: 230px;
+    }
+
+    .ratio-story {
+        width: 190px;
+    }
+
+
+    .card-left-back {
+        transform:
+            translateX(-300px)
+            rotate(-12deg)
+            scale(.72);
+    }
+
+    .card-left {
+        transform:
+            translateX(-170px)
+            rotate(-7deg)
+            scale(.82);
+    }
+
+    .card-right {
+        transform:
+            translateX(170px)
+            rotate(7deg)
+            scale(.82);
+    }
+
+    .card-right-back {
+        transform:
+            translateX(300px)
+            rotate(12deg)
+            scale(.72);
+    }
+
+
+    .social-hint {
+        display: none;
+    }
+
+}
+
+
+/* =========================
+   CONTACT PAGE
+========================= */
+
+.contact-page {
+    min-height: 100vh;
+
+    padding: 7vw;
+
+    background: #020707;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.contact-card {
+
+    position: relative;
+
+    width: 100%;
+    min-height: 680px;
+
+    padding: 40px;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    color: #f4f7f5;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 100%,
+            rgba(23, 119, 92, 0.75),
+            transparent 38%
+        ),
+
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(16, 75, 63, 0.75),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 55% 50%,
+            rgba(7, 52, 45, 0.9),
+            transparent 55%
+        ),
+
+        #061b18;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.04),
+        0 30px 100px rgba(0,0,0,0.45);
+
+}
+
+
+/* subtle light inside card */
+
+.contact-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    left: -180px;
+    bottom: -280px;
+
+    background: #31a77e;
+
+    filter: blur(150px);
+
+    opacity: 0.16;
+
+    pointer-events: none;
+
+}
+
+
+/* =========================
+   TOP LABEL
+========================= */
+
+.contact-label {
+
+    position: absolute;
+
+    top: 40px;
+    left: 40px;
+
+    display: flex;
+    gap: 10px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.55;
+
+}
+
+.contact-label span:first-child {
+
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255,255,255,0.2);
+
+    border-radius: 30px;
+
+}
+
+
+/* =========================
+   MAIN COPY
+========================= */
+
+.contact-copy {
+
+    position: absolute;
+
+    left: 40px;
+    bottom: 105px;
+
+    width: 42%;
+
+}
+
+.contact-copy h1 {
+
+    margin: 0 0 22px;
+
+    font-size: clamp(50px, 5vw, 82px);
+
+    font-weight: 400;
+
+    line-height: 0.93;
+
+    letter-spacing: -0.055em;
+
+}
+
+.contact-copy p {
+
+    max-width: 480px;
+
+    margin: 0;
+
+    color: rgba(255,255,255,0.58);
+
+    font-size: 17px;
+
+    line-height: 1.45;
+
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.contact-form {
+
+    position: absolute;
+
+    right: 40px;
+    top: 100px;
+
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+
+}
+
+
+.field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+}
+
+
+.field label {
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+
+    color: rgba(255,255,255,0.45);
+
+}
+
+
+.field input,
+.field select,
+.field textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    padding: 15px 16px;
+
+    background: rgba(255,255,255,0.075);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition:
+        background 0.3s ease,
+        border 0.3s ease,
+        box-shadow 0.3s ease;
+
+}
+
+
+.field input::placeholder,
+.field textarea::placeholder {
+
+    color: rgba(255,255,255,0.3);
+
+}
+
+
+.field select {
+
+    appearance: none;
+
+    cursor: pointer;
+
+}
+
+
+.field textarea {
+
+    min-height: 125px;
+
+    resize: vertical;
+
+}
+
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+
+    background: rgba(23, 22, 22, 0.979);
+
+    border-color: rgba(255,255,255,0.25);
+
+    box-shadow:
+        0 0 0 3px rgba(75,180,145,0.08);
+
+}
+
+
+/* =========================
+   SEND BUTTON
+========================= */
+
+.contact-form button {
+
+    margin-top: 5px;
+
+    width: 100%;
+
+    padding: 18px 20px;
+
+    border: none;
+
+    border-radius: 100px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    background: #e9efec;
+
+    color: #061b18;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+.contact-form button:hover {
+
+    transform: translateY(-3px);
+
+    background: white;
+
+}
+
+
+.arrow {
+
+    font-size: 20px;
+
+    line-height: 0;
+
+}
+
+
+/* =========================
+   FLOATING BUBBLES
+========================= */
+
+.contact-bubbles {
+
+    position: absolute;
+
+    top: 40px;
+    right: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.bubble {
+
+    width: 54px;
+    height: 54px;
+
+    margin-left: -8px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f4f7f5;
+
+    color: #061b18;
+
+    border: 2px solid #061b18;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease;
+
+}
+
+
+.bubble:hover {
+
+    transform: translateY(-7px);
+
+    z-index: 5;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.contact-footer {
+
+    position: absolute;
+
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: rgba(255,255,255,0.35);
+
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .contact-page {
+
+        padding: 20px;
+
+    }
+
+    .contact-card {
+
+        min-height: auto;
+
+        padding: 30px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 50px;
+
+    }
+
+    .contact-label,
+    .contact-bubbles,
+    .contact-copy,
+    .contact-form,
+    .contact-footer {
+
+        position: relative;
+
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+
+    }
+
+    .contact-label {
+
+        order: 1;
+
+    }
+
+    .contact-bubbles {
+
+        position: absolute;
+
+        top: 25px;
+        right: 25px;
+
+    }
+
+    .contact-copy {
+
+        order: 2;
+
+        width: 100%;
+
+        margin-top: 80px;
+
+    }
+
+    .contact-copy h1 {
+
+        font-size: 54px;
+
+    }
+
+    .contact-form {
+
+        order: 3;
+
+        width: 100%;
+
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .contact-footer {
+
+        order: 4;
+
+        width: 100%;
+
+        gap: 20px;
+
+        flex-direction: column;
+
+    }
+
+}
+
+.contact-card {
+    background-size: 160% 160%;
+
+    animation: gradientMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes gradientMove {
+
+    0% {
+        background-position: 0% 100%;
+    }
+
+    100% {
+        background-position: 100% 0%;
+    }
+
+}
