@@ -6,196 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Works | Sagar Rudach</title>
 
-    <header class="site-header">
 
-    <!-- LEFT -->
-    <div class="header-name">
-        Sagar Rudach
-    </div>
-
-    <!-- CENTER -->
-    <nav class="header-nav">
-       <a href="index.html" data-page="index">Index</a>
-        <a href="works.html" data-page="works">Works</a>
-        <a href="info.html" data-page="info">Info</a>
-    </nav>
-
-    <!-- RIGHT -->
-    <div class="header-right">
-
-        <div class="header-location">
-            <span id="clock">08:32 PM</span>
-            <span>Gujarat, India</span>
-        </div>
-
-        <a href="contact.html" class="header-contact">
-            Contact
-        </a>
-
-    </div>
-</header>
-
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<script>
-
-const socialCards = document.querySelectorAll(".social-card");
-const socialDots = document.querySelectorAll(".social-dots button");
-
-let currentSocial = 2;
-
-
-/* ---------------------------------------------------------
-   UPDATE CAROUSEL
---------------------------------------------------------- */
-
-function updateSocialCarousel() {
-
-    socialCards.forEach((card, index) => {
-
-        let position = index - currentSocial;
-
-        /*
-        position:
-
-        -2 = far left
-        -1 = left
-         0 = center
-         1 = right
-         2 = far right
-        */
-
-        if (position === -2) {
-            card.style.transform =
-                "translateX(-520px) rotate(-12deg) scale(.82)";
-            card.style.opacity = ".65";
-            card.style.zIndex = "1";
-
-        }
-
-        else if (position === -1) {
-            card.style.transform =
-                "translateX(-300px) rotate(-7deg) scale(.9)";
-            card.style.opacity = ".9";
-            card.style.zIndex = "2";
-        }
-
-        else if (position === 0) {
-            card.style.transform =
-                "translateX(0) rotate(0deg) scale(1)";
-            card.style.opacity = "1";
-            card.style.zIndex = "5";
-        }
-
-        else if (position === 1) {
-            card.style.transform =
-                "translateX(300px) rotate(7deg) scale(.9)";
-            card.style.opacity = ".9";
-            card.style.zIndex = "2";
-
-        }
-
-        else if (position === 2) {
-            card.style.transform =
-                "translateX(520px) rotate(12deg) scale(.82)";
-            card.style.opacity = ".65";
-            card.style.zIndex = "1";
-
-        }
-
-        else {
-            card.style.opacity = "0";
-            card.style.zIndex = "0";
-
-        }
-
-    });
-
-
-    socialDots.forEach((dot, index) => {
-
-        dot.classList.toggle(
-            "active",
-            index === currentSocial
-        );
-
-    });
-
-}
-
-
-/* ---------------------------------------------------------
-   DOT NAVIGATION
---------------------------------------------------------- */
-
-socialDots.forEach((dot, index) => {
-
-    dot.addEventListener("click", () => {
-
-        currentSocial = index;
-
-        updateSocialCarousel();
-
-    });
-
-});
-
-
-/* initial */
-
-updateSocialCarousel();
-
-</script>
 
 <body class="works-body">
+
+    <!-- Shared header (edit it in js/header.js) -->
+    <script src="js/header.js"></script>
     <main class="works-page">
         <section class="social-showcase" aria-label="Social media and campaign work">
-    <div class="social-stage">
+    <div class="social-stage" tabindex="0" aria-roledescription="carousel">
 
-        <!-- PROJECT 01 — 4:5 -->
-        <article class="social-card ratio-portrait card-left-back">
-            <img src="Assets/post_2.png" alt="Campaign artwork">
+        <!-- PROJECT 01 — data-shape = ratio while in the background -->
+        <article class="social-card" data-shape="4/5" data-href="project-01.html">
+            <img src="assets/images/projects/project-01/POST_1_1.png" alt="Campaign artwork">
             <div class="social-card-label">
                 <span>01</span>
-                <span>Campaign</span>
+                <span>Campaign &mdash; View project &nearr;</span>
             </div>
         </article>
 
-        <!-- PROJECT 02 — 1:1 -->
-        <article class="social-card ratio-square card-left">
-            <img src="Assets/post_3.png" alt="Social media artwork">
+        <!-- PROJECT 02 -->
+        <article class="social-card" data-shape="1/1">
+            <img src="assets/images/projects/project-02/Post_2.png" alt="Social media artwork">
             <div class="social-card-label">
                 <span>02</span>
                 <span>Social</span>
             </div>
         </article>
 
-        <!-- PROJECT 03 — 9:16 -->
-        <article class="social-card ratio-story card-center">
-            <img src="Assets/post_4.png" alt="Story artwork">
+        <!-- PROJECT 03 -->
+        <article class="social-card" data-shape="9/16">
+            <img src="assets/images/before-after/after_3.png" alt="Story artwork">
             <div class="social-card-label">
                 <span>03</span>
                 <span>Story / Motion</span>
             </div>
         </article>
 
-        <!-- PROJECT 04 — 4:5 -->
-        <article class="social-card ratio-portrait card-right">
-            <img src="Assets/post_5.png" alt="Campaign artwork">
+        <!-- PROJECT 04 -->
+        <article class="social-card" data-shape="4/5">
+            <img src="assets/images/before-after/after_4.png" alt="Campaign artwork">
             <div class="social-card-label">
                 <span>04</span>
                 <span>Campaign</span>
             </div>
         </article>
 
-        <!-- PROJECT 05 — 9:16 -->
-        <article class="social-card ratio-story card-right-back">
-            <img src="Assets/post_6.png" alt="Vertical campaign artwork">
+        <!-- PROJECT 05 -->
+        <article class="social-card" data-shape="9/16">
+            <img src="assets/images/before-after/after_5.png" alt="Vertical campaign artwork">
             <div class="social-card-label">
                 <span>05</span>
                 <span>Reel / Story</span>
             </div>
         </article>
+
+        <!-- Prev / next, on either side of the stage -->
+        <button class="social-nav social-nav-prev" id="socialPrev" aria-label="Previous project">&larr;</button>
+        <button class="social-nav social-nav-next" id="socialNext" aria-label="Next project">&rarr;</button>
     </div>
 
     <div class="social-showcase-bottom">
@@ -206,21 +76,22 @@ updateSocialCarousel();
             <button aria-label="Project 4"></button>
             <button aria-label="Project 5"></button>
         </div>
-        <span class="social-hint">Drag / scroll</span>
+
+        <span class="social-hint">Drag / scroll &middot; hover to pause</span>
     </div>
 
 </section>
 
 <section class="works-grid" aria-label="Selected projects">
-            <a class="work-card work-card-wide" href="index.html#project-01">
-                <img src="Assets/post_2.png" alt="Project 01">
+            <a class="work-card work-card-wide" href="project-01.html">
+                <img src="assets/images/projects/project-01/POST_1_1.png" alt="Project 01">
                 <div class="work-card-meta">
                     <span>01</span>
                     <span>Film / Direction</span>
                 </div>
             </a>
             <a class="work-card" href="index.html#project-02">
-                <img src="Assets/post_3.png" alt="Project 02">
+                <img src="assets/images/projects/project-02/Post_2.png" alt="Project 02">
                 <div class="work-card-meta">
                     <span>02</span>
                     <span>Campaign / Visuals</span>
@@ -228,7 +99,7 @@ updateSocialCarousel();
             </a>
 
             <a class="work-card" href="index.html#project-03">
-                <img src="Assets/post_4.png" alt="Project 03">
+                <img src="assets/images/before-after/after_3.png" alt="Project 03">
                 <div class="work-card-meta">
                     <span>03</span>
                     <span>Editorial / Film</span>
@@ -236,7 +107,7 @@ updateSocialCarousel();
             </a>
 
             <a class="work-card" href="index.html#project-04">
-                <img src="Assets/post_5.png" alt="Project 04">
+                <img src="assets/images/before-after/after_4.png" alt="Project 04">
                 <div class="work-card-meta">
                     <span>04</span>
                     <span>Production / Direction</span>
@@ -244,7 +115,7 @@ updateSocialCarousel();
             </a>
 
             <a class="work-card work-card-tall" href="index.html#project-05">
-                <img src="Assets/post_6.png" alt="Project 05">
+                <img src="assets/images/before-after/after_5.png" alt="Project 05">
                 <div class="work-card-meta">
                     <span>05</span>
                     <span>Brand Story / Film</span>
@@ -252,7 +123,7 @@ updateSocialCarousel();
             </a>
 
             <a class="work-card work-card-wide" href="index.html#project-06">
-                <img src="Assets/project-05-thumb.jpg" alt="Project 06">
+                <img src="assets/images/before-after/after_6.png" alt="Project 06">
                 <div class="work-card-meta">
                     <span>06</span>
                     <span>Visual Storytelling</span>
@@ -260,6 +131,312 @@ updateSocialCarousel();
             </a>
         </section>
     </main>
+
+    <!-- Shared site script (clock, nav highlighting) -->
+    <script src="js/main.js"></script>
+
+    <!-- Works page carousel
+         The centre card is sized to its image's original ratio.
+         Cards behind it use their data-shape ratio and are styled
+         black & white with a glass pane (see css/style.css). -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const stage       = document.querySelector(".social-stage");
+        const socialCards = Array.from(document.querySelectorAll(".social-card"));
+        const socialDots  = document.querySelectorAll(".social-dots button");
+
+        if (!stage || !socialCards.length) return;
+
+        let currentSocial = Math.floor(socialCards.length / 2);
+        let ready = false;
+
+        // Back-card tilt / scale for 1 and 2 steps away from the centre
+        const STEPS = [
+            { scale: .86, rotate: 6,  opacity: 1  },
+            { scale: .74, rotate: 11, opacity: .8 }
+        ];
+
+        // How much of each back card is tucked behind the card in front
+        const TUCK = .38;
+
+        function parseRatio(value) {
+            const [w, h] = String(value || "4/5").split("/").map(Number);
+            return w && h ? w / h : .8;
+        }
+
+        socialCards.forEach(card => {
+
+            const img = card.querySelector("img");
+
+            card.shapeRatio = parseRatio(card.dataset.shape);
+            card.imageRatio = card.shapeRatio;
+
+            function readRatio() {
+                if (img.naturalWidth && img.naturalHeight) {
+                    card.imageRatio = img.naturalWidth / img.naturalHeight;
+                    if (ready) updateSocialCarousel();
+                }
+            }
+
+            if (img.complete) readRatio();
+            else img.addEventListener("load", readRatio);
+        });
+
+
+        /* SIZE OF EACH CARD */
+        function cardSize(card, isActive) {
+
+            const stageW = stage.clientWidth;
+            const stageH = stage.clientHeight;
+
+            if (isActive) {
+                // Fit the original image ratio inside the hero box
+                const maxW = Math.min(680, stageW * (stageW < 700 ? .8 : .55));
+                const maxH = stageH - 60;
+                const ratio = card.imageRatio;
+                const h = Math.min(maxH, maxW / ratio);
+                return { w: h * ratio, h };
+            }
+
+            const h = stageH * .62;
+            return { w: h * card.shapeRatio, h };
+        }
+
+
+        /* UPDATE CAROUSEL
+           The carousel loops: every card gets a position relative to
+           the centre (-2 .. 2), wrapping around the ends. */
+        let lastShift = 0;
+
+        function positionOf(index) {
+            const n = socialCards.length;
+            const half = Math.floor(n / 2);
+            return ((index - currentSocial) % n + n + half) % n - half;
+        }
+
+        function updateSocialCarousel() {
+
+            const active = socialCards[currentSocial];
+            const activeSize = cardSize(active, true);
+            const targets = new Map();
+
+            const byPos = new Map();
+            socialCards.forEach((card, index) => byPos.set(positionOf(index), card));
+
+            targets.set(active, {
+                transform: "translateX(0) rotate(0deg) scale(1)",
+                opacity: 1, z: 5, hidden: false, pos: 0
+            });
+
+            // Lay out each side outwards from the edge of the hero card
+            [-1, 1].forEach(dir => {
+
+                let edge = activeSize.w / 2;
+
+                for (let step = 1; ; step++) {
+
+                    const card = byPos.get(dir * step);
+                    if (!card) break;
+
+                    const look = STEPS[step - 1];
+                    const size = cardSize(card, false);
+
+                    if (!look) {
+                        // Further cards wait off to the side, hidden
+                        targets.set(card, {
+                            transform: `translateX(${dir * (edge + size.w / 2)}px) scale(.6)`,
+                            opacity: 0, z: 0, hidden: true, pos: dir * step
+                        });
+                        continue;
+                    }
+
+                    const visibleW = size.w * look.scale;
+                    const x = edge + visibleW / 2 - visibleW * TUCK;
+                    edge = x + visibleW / 2;
+
+                    targets.set(card, {
+                        transform: `translateX(${dir * x}px) rotate(${dir * look.rotate}deg) scale(${look.scale})`,
+                        opacity: look.opacity, z: 5 - step, hidden: false, pos: dir * step
+                    });
+                }
+            });
+
+            socialCards.forEach(card => {
+
+                const target = targets.get(card);
+                const isActive = card === active;
+                const size = cardSize(card, isActive);
+
+                // A card that wraps from one end to the other jumps
+                // (invisibly) to just outside its new side, then slides in.
+                const wrapped = card.lastPos !== undefined &&
+                    card.lastPos - lastShift !== target.pos;
+
+                if (wrapped) {
+                    const dir = Math.sign(target.pos) || 1;
+                    card.style.transition = "none";
+                    card.style.transform =
+                        `translateX(${dir * (stage.clientWidth / 2 + size.w)}px) scale(.6)`;
+                    card.style.opacity = "0";
+                    card.offsetWidth; // apply the jump before re-enabling transitions
+                    card.style.transition = "";
+                }
+
+                card.style.width  = size.w + "px";
+                card.style.height = size.h + "px";
+                card.style.transform = target.transform;
+                card.style.opacity = String(target.opacity);
+                card.style.zIndex = String(target.z);
+                card.classList.toggle("is-active", isActive);
+                card.classList.toggle("is-hidden", target.hidden);
+                card.setAttribute("aria-hidden", String(!isActive));
+                card.lastPos = target.pos;
+            });
+
+            lastShift = 0;
+
+            socialDots.forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentSocial);
+            });
+        }
+
+        function goTo(index) {
+            const n = socialCards.length;
+            const next = ((index % n) + n) % n;
+
+            // Signed distance moved, the short way round the loop
+            const half = Math.floor(n / 2);
+            lastShift = ((next - currentSocial) % n + n + half) % n - half;
+
+            currentSocial = next;
+            updateSocialCarousel();
+            scheduleAutoplay();
+        }
+
+
+        /* AUTOPLAY
+           Advances on its own; pauses while hovered, focused,
+           off-screen, or when the tab is hidden. */
+        const AUTOPLAY_DELAY = 3200;
+        const reduceMotion =
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let autoplayTimer = null;
+        let hovered = false;
+        let focused = false;
+        let onScreen = true;
+
+        function scheduleAutoplay() {
+            clearTimeout(autoplayTimer);
+            if (reduceMotion || hovered || focused || !onScreen || document.hidden) return;
+            autoplayTimer = setTimeout(() => goTo(currentSocial + 1), AUTOPLAY_DELAY);
+        }
+
+        stage.addEventListener("pointerenter", (e) => {
+            if (e.pointerType === "mouse") { hovered = true; scheduleAutoplay(); }
+        });
+        stage.addEventListener("pointerleave", () => { hovered = false; scheduleAutoplay(); });
+        stage.addEventListener("focusin",  () => { focused = true;  scheduleAutoplay(); });
+        stage.addEventListener("focusout", () => { focused = false; scheduleAutoplay(); });
+        document.addEventListener("visibilitychange", scheduleAutoplay);
+
+        new IntersectionObserver(entries => {
+            onScreen = entries[0].isIntersecting;
+            scheduleAutoplay();
+        }, { threshold: 0.3 }).observe(stage);
+
+
+        /* PREV / NEXT BUTTONS */
+        const prevButton = document.getElementById("socialPrev");
+        const nextButton = document.getElementById("socialNext");
+
+        if (prevButton) prevButton.addEventListener("click", () => goTo(currentSocial - 1));
+        if (nextButton) nextButton.addEventListener("click", () => goTo(currentSocial + 1));
+
+
+        /* DOT NAVIGATION */
+        socialDots.forEach((dot, index) => {
+            dot.addEventListener("click", () => goTo(index));
+        });
+
+
+        /* CLICK: back card comes forward, linked hero card opens its page */
+        let dragged = false;
+
+        socialCards.forEach((card, index) => {
+            card.addEventListener("click", () => {
+                if (dragged) return;
+                if (index !== currentSocial) goTo(index);
+                else if (card.dataset.href) window.location.href = card.dataset.href;
+            });
+        });
+
+
+        /* SWIPE / DRAG SUPPORT */
+        let startX = 0;
+        let isDragging = false;
+
+        stage.addEventListener("pointerdown", (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            dragged = false;
+        });
+
+        stage.addEventListener("pointerup", (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            const diff = e.clientX - startX;
+
+            if (Math.abs(diff) > 50) {
+                dragged = true;
+                goTo(currentSocial + (diff < 0 ? 1 : -1));
+            }
+        });
+
+        stage.addEventListener("pointercancel", () => { isDragging = false; });
+
+
+        /* HORIZONTAL SCROLL (trackpad / shift + wheel) */
+        let wheelLocked = false;
+
+        stage.addEventListener("wheel", (e) => {
+
+            const dx = Math.abs(e.deltaX) > Math.abs(e.deltaY)
+                ? e.deltaX
+                : (e.shiftKey ? e.deltaY : 0);
+
+            if (!dx) return;
+
+            e.preventDefault();
+            if (wheelLocked || Math.abs(dx) < 15) return;
+
+            wheelLocked = true;
+            goTo(currentSocial + (dx > 0 ? 1 : -1));
+            setTimeout(() => { wheelLocked = false; }, 550);
+
+        }, { passive: false });
+
+
+        /* KEYBOARD */
+        stage.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowRight") goTo(currentSocial + 1);
+            else if (e.key === "ArrowLeft") goTo(currentSocial - 1);
+            else if (e.key === "Enter" && socialCards[currentSocial].dataset.href) {
+                window.location.href = socialCards[currentSocial].dataset.href;
+            }
+        });
+
+
+        window.addEventListener("resize", updateSocialCarousel);
+
+        /* INITIAL */
+        ready = true;
+        updateSocialCarousel();
+        scheduleAutoplay();
+
+    });
+    </script>
 </body>
 
 </html>

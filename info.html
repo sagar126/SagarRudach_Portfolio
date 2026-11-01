@@ -5,117 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sagar Rudach — Portfolio</title>
-<header class="site-header">
+    <title>Info | Sagar Rudach</title>
 
-    <!-- LEFT -->
-    <div class="header-name">
-        Sagar Rudach
-    </div>
-
-    <!-- CENTER -->
-    <nav class="header-nav">
-       <a href="index.html" data-page="index">Index</a>
-        <a href="works.html" data-page="works">Works</a>
-        <a href="info.html" data-page="info">Info</a>
-    </nav>
-
-    <!-- RIGHT -->
-    <div class="header-right">
-
-        <div class="header-location">
-            <span id="clock">08:32 PM</span>
-            <span>Gujarat, India</span>
-        </div>
-
-        <a href="contact.html" class="header-contact">
-            Contact
-        </a>
-
-    </div>
-</header>
-
-    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="info-body">
+
+    <!-- Shared header (edit it in js/header.js) -->
+    <script src="js/header.js"></script>
+
+    <!-- =========================================
+         INFO / ABOUT
+         The roles sit around the portrait in the direction
+         their data-gaze names; js/info.js makes the eyes
+         follow the cursor and look at a role on hover.
+    ========================================= -->
 
     <main class="about">
 
-        <!-- LEFT TEXT -->
-        <div class="intro">
-            <span>HI! I'M A...</span>
+        <!-- INTRO -->
+        <div class="about-intro">
+            <span>Hi! I'm a&hellip;</span>
         </div>
 
+        <!-- ROLES + PORTRAIT -->
+        <div class="about-stage">
 
-        <!-- PORTRAIT -->
-        <div class="portrait" id="portrait">
+            <span class="role role-ul" data-gaze="upper-left">Creator<i>*</i></span>
+            <span class="role role-up" data-gaze="up">Animator<i>*</i></span>
+            <span class="role role-ur" data-gaze="upper-right">Filmmaker<i>*</i></span>
+            <span class="role role-l"  data-gaze="left">3D Artist<i>*</i></span>
+            <span class="role role-r"  data-gaze="right">Editor<i>*</i></span>
 
-            <!-- Static face -->
-            <img
-                src="assets/portrait.jpg"
-                class="portrait-base"
-                alt="Portrait"
-            >
+            <!-- PORTRAIT
+                 Photo mode: add assets/images/info/portrait.jpg plus
+                 eye images in assets/images/info/eyes/ (center.png,
+                 up.png, down.png, left.png, right.png, upper-left.png,
+                 upper-right.png, lower-left.png, lower-right.png) and
+                 the page switches to them automatically.
+                 Until then the drawn eyes below are used. -->
+            <figure class="portrait" id="portrait">
 
-            <!-- Interactive eye layer -->
-            <div class="eye-container">
+                <!-- Photo mode -->
+                <img class="portrait-base" id="portraitBase" alt="Portrait of Sagar Rudach">
 
-                <img
-                    id="eyesA"
-                    class="eyes eyes-visible"
-                    src="assets/eyes/center.png"
-                    alt=""
-                >
+                <div class="eye-container">
+                    <img id="eyesA" class="eyes eyes-visible" alt="">
+                    <img id="eyesB" class="eyes" alt="">
+                </div>
 
-                <img
-                    id="eyesB"
-                    class="eyes"
-                    src="assets/eyes/center.png"
-                    alt=""
-                >
+                <!-- Drawn mode (fallback) -->
+                <div class="drawn-face" aria-hidden="true">
+                    <div class="drawn-eye"><span class="pupil"></span></div>
+                    <div class="drawn-eye"><span class="pupil"></span></div>
+                </div>
 
-            </div>
+            </figure>
 
         </div>
 
-
-        <!-- RIGHT TEXT -->
-        <div class="location">
-            <span>LIVING AND WORKING</span>
-            <span>IN INDIA</span>
+        <!-- BIO -->
+        <div class="about-bio">
+            <p>
+                A filmmaker, creative producer and visual storyteller,
+                creating narratives that captivate audiences and leave
+                a lasting impact.
+            </p>
+            <a class="about-link" href="https://www.instagram.com/aree_sagar/" target="_blank" rel="noopener">
+                Instagram &nearr;
+            </a>
         </div>
 
-
-        <!-- CREATIVE ROLES -->
-        <div class="roles">
-
-            <span class="role" data-gaze="upper-left">
-                CREATOR *
-            </span>
-
-            <span class="role" data-gaze="up">
-                ANIMATOR *
-            </span>
-
-            <span class="role" data-gaze="upper-right">
-                FILMMAKER *
-            </span>
-
-            <span class="role" data-gaze="left">
-                3D ARTIST *
-            </span>
-
-            <span class="role" data-gaze="right">
-                EDITOR *
-            </span>
-
+        <!-- LOCATION -->
+        <div class="about-location">
+            <span>Living and working</span>
+            <span>in India</span>
         </div>
 
     </main>
 
-
-    <script src="Script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/info.js"></script>
 
 </body>
 

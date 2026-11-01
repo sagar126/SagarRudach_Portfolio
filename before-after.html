@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Before / After | Sagar Rudach</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="works-body">
+
+    <!-- Shared header (edit it in js/header.js) -->
+    <script src="js/header.js"></script>
+
+
+
+
+    <main class="ba-page">
+
+        <!-- =========================================
+             HEADING
+        ========================================= -->
+
+        <div class="ba-heading">
+
+            <div class="ba-heading-top">
+                <span>Before / After &mdash; Selected stills</span>
+                <span><span id="baCount">00</span> Stills &middot; Drag to compare</span>
+            </div>
+
+            <h1>Before<span class="ba-slash"> / </span>After</h1>
+
+        </div>
+
+
+        <!-- =========================================
+             COMPARISONS
+             js/before-after.js looks in assets/images/before-after/ for
+             before_1 / after_1, before_2 / after_2 ... and
+             builds one slider per pair. No need to edit
+             this file when you add more photos.
+        ========================================= -->
+
+        <section class="ba-grid" id="baGrid" aria-label="Before and after stills">
+
+            <p class="ba-empty">Looking for photos&hellip;</p>
+
+            <noscript>
+                <p class="ba-empty">Turn on JavaScript to see the before / after comparisons.</p>
+            </noscript>
+
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script src="js/before-after.js"></script>
+
+</body>
+
+</html>

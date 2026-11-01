@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sagar Rudach</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="works-body">
+
+    <!-- Shared header (edit it in js/header.js) -->
+    <script src="js/header.js"></script>
+
+    <!-- =========================================
+         CONTACT — COMING SOON
+         Uses the .contact-* card styles in css/style.css,
+         plus the .soon-* additions.
+    ========================================= -->
+
+    <main class="contact-page soon-page">
+
+        <section class="contact-card soon-card">
+
+            <div class="contact-label">
+                <span>CONTACT</span>
+                <span>COMING SOON</span>
+            </div>
+
+            <div class="soon-status">
+                <span class="soon-dot" aria-hidden="true"></span>
+                Contact form in progress
+            </div>
+
+            <div class="contact-copy soon-copy">
+
+                <h1>Let's talk.<br><span>Very soon.</span></h1>
+
+                <p>
+                    The contact page is still being put together.
+                    Until it's ready, say hi on Instagram or take a
+                    look around the work.
+                </p>
+
+                <div class="soon-actions">
+                    <a class="soon-button"
+                       href="https://www.instagram.com/aree_sagar/"
+                       target="_blank" rel="noopener">
+                        Say hi on Instagram <span class="arrow">&nearr;</span>
+                    </a>
+
+                    <a class="soon-link" href="works.html">
+                        Browse works &rarr;
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="contact-footer">
+                <span>&copy; <span id="soonYear">2026</span> SAGAR RUDACH</span>
+                <span>GUJARAT, INDIA</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById("soonYear").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
