@@ -15,7 +15,7 @@
    from js/main.js.
 ========================================= */
 
-const BA_FOLDER = "assets/images/before-after";
+const BA_FOLDER = "Assets/images/before-after";
 const BA_BEFORE_PREFIX = "before_";
 const BA_AFTER_PREFIX = "after_";
 
